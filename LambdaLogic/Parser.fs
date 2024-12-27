@@ -5,8 +5,8 @@ open AST
 // lots of brackets - recursion
 
 //<λexp>::= <var>
-//        | λ<var> . <λexp>
-//        | ( <λexp> <λexp> )
+//        | λ<var>.<λexp>
+//        | (<λexp> <λexp>)
 
 // Todo:
 // Probably should deal with white space instead of just everything next to eachother (λx.λy.(xy)) -> (λ x. λ y. (x y))
@@ -21,7 +21,7 @@ let lambdaParser =
     keyword "λ"
 
 let charParser: Parser<char, unit> =
-    satisfy isLetter
+    satisfy isAsciiLetter
 
 let varParser: Parser<Expr, unit> =
     charParser |>> Var
@@ -29,21 +29,18 @@ let varParser: Parser<Expr, unit> =
 
 let exprParser, exprParserRef = createParserForwardedToRef<Expr, unit>()
 
-let applcationParser : Parser<Expr, unit> = //<application> := <expression><expression> 
-    pstring("(") >>. ((lambdaParser >>.exprParser) .>>. (lambdaParser >>.exprParser)) .>> pstring(")")
+let applicationParser : Parser<Expr, unit> =
+    keyword "(" >>. exprParser .>> opt ws .>>. exprParser .>> keyword ")" 
     |>> (fun (expr1, expr2) -> Application(expr1, expr2))
 
-let functionParser : Parser<Expr, unit> =  //<function> := λ <name>.<expression>
-    lambdaParser >>. charParser .>> keyword "." .>>. exprParser
+let functionParser : Parser<Expr, unit> =  
+    (lambdaParser >>. charParser .>> keyword ".") .>>. exprParser
     |>> (fun (param, body) -> Function(param, body))
 
 exprParserRef := 
-    varParser // <var>
-    <|> functionParser // λ<var>.<λexp>
-    <|> applcationParser  //( <λexp> <λexp> )
-
-do exprParserRef.Value <- 
-    exprParser
+    functionParser
+    <|> varParser
+    <|> applicationParser 
 
 
 let parseLambda (expr: string) : Result<Expr, string> =

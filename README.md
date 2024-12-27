@@ -15,7 +15,7 @@ A super basic Lambda calculus interpreter in F#.
 - [x] Var Parser
 - [x] Function Parser
 - [x] Application Parser
-- [ ] Expression Parser
+- [x] Expression Parser
 
     ```plaintext
     <λexp> ::= <var>
@@ -23,6 +23,6 @@ A super basic Lambda calculus interpreter in F#.
              | (<λexp> <λexp>)
     ```
 
-#### Reduction
+#### Transformations
 - [ ] Alpha-reduction
-- [ ] Beta-reduction
+- [ ] Beta-conversion

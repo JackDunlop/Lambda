@@ -4,5 +4,6 @@ open Parser
 
 module Logic =
     let processInput (input: string) =
-        Parser.parseLambda(input)
-   
+        match Parser.parseLambda(input) with
+        | Result.Ok(result) -> "Success: " + result.ToString()
+        | Result.Error(errorMsg) -> "Invalid input: " + errorMsg

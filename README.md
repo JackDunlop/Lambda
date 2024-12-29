@@ -2,7 +2,12 @@
 
 A super basic Lambda calculus interpreter in F#.
 
-#### AST
+## Lambda Frontend
+- [ ] Tree Visualisations
+
+## Lambda Logic
+
+### AST
 - [x] AST
 
     ```plaintext
@@ -11,7 +16,7 @@ A super basic Lambda calculus interpreter in F#.
     <application> := <expression> <expression>
     ```
 
-#### Parser
+### Parser
 - [x] Var Parser
 - [x] Function Parser
 - [x] Application Parser
@@ -23,9 +28,10 @@ A super basic Lambda calculus interpreter in F#.
              | (<λexp> <λexp>)
     ```
 
-#### Transformations
+### Transformations
 - [ ] Alpha-reduction
 - [ ] Beta-conversion
+
 
 
 # Resoucres

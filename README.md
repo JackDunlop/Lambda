@@ -26,3 +26,9 @@ A super basic Lambda calculus interpreter in F#.
 #### Transformations
 - [ ] Alpha-reduction
 - [ ] Beta-conversion
+
+
+# Resoucres
+https://opendsa.cs.vt.edu/ODSA/Books/PL/html/Syntax.html
+https://homepage.cs.uiowa.edu/~slonnegr/plf/Book/Chapter5.pdf
+CAB402 Lectures from QUT

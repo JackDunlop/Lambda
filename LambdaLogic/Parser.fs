@@ -23,11 +23,11 @@ let varParser: Parser<Expr, unit> =
     charParser |>> Var
 
 let functionParser : Parser<Expr, unit> =  
-    (lambdaParser >>. charParser .>> keyword ".") .>>. exprParser
+    lambdaParser .>> ws >>. charParser .>> ws .>> keyword "." .>> ws .>>. exprParser
     |>> (fun (param, body) -> Function(param, body))
 
 let applicationParser : Parser<Expr, unit> =
-    between (keyword "(") (keyword ")") exprParser
+    between (keyword "(" .>> ws) (ws >>. keyword ")") (ws >>. exprParser)
     
 
 let termParser: Parser<Expr, unit> =
@@ -36,7 +36,7 @@ let termParser: Parser<Expr, unit> =
     <|> applicationParser
 
 exprParserRef :=
-    pipe2 termParser (many (spaces >>. termParser))
+    pipe2 termParser (many (ws >>. termParser))
         (fun first rest -> List.fold (fun acc x -> Application(acc, x)) first rest)
 
 

@@ -268,7 +268,7 @@ module Tests =
 
     [<Fact>]
     let ``exprParser should parse very deep lambda nesting (λa.(λb.(λc.(λd.(λe.(a (b (c (d e)))))))))`` () =
-        let input = "λa.(λb.(λc.(λd.(λe.(a (b (c (d e))))))))"
+        let input = "λa.(λb.(λc.(λd.(λe.(a (b (c (de))))))))"
         let expected =
             Function('a',
                 Function('b',

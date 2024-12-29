@@ -9,6 +9,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LambdaLogic", "LambdaLogic\
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LambdaTesting", "LambdaTesting\LambdaTesting.fsproj", "{5DF81090-4072-408B-840A-EBA31A578E59}"
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "lambdafrontend", "LambdaFrontend\lambdafrontend.esproj", "{5C482BCA-E44D-4460-8654-7FA3862BE95D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{5DF81090-4072-408B-840A-EBA31A578E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DF81090-4072-408B-840A-EBA31A578E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DF81090-4072-408B-840A-EBA31A578E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

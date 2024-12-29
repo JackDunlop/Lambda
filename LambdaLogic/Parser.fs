@@ -1,17 +1,13 @@
 ﻿module Parser
 open FParsec
 open AST
-// no numbers
-// lots of brackets - recursion
 
 //<λexp>::= <var>
 //        | λ<var>.<λexp>
 //        | (<λexp> <λexp>)
 
-// Todo:
-// Probably should deal with white space instead of just everything next to eachother (λx.λy.(xy)) -> (λ x. λ y. (x y))
 
-
+let exprParser, exprParserRef = createParserForwardedToRef<Expr, unit>()
 let ws = spaces
 
 let keyword (str:string) : Parser<string,unit> = 
@@ -26,21 +22,22 @@ let charParser: Parser<char, unit> =
 let varParser: Parser<Expr, unit> =
     charParser |>> Var
 
-
-let exprParser, exprParserRef = createParserForwardedToRef<Expr, unit>()
-
-let applicationParser : Parser<Expr, unit> =
-    keyword "(" >>. exprParser .>> opt ws .>>. exprParser .>> keyword ")" 
-    |>> (fun (expr1, expr2) -> Application(expr1, expr2))
-
 let functionParser : Parser<Expr, unit> =  
     (lambdaParser >>. charParser .>> keyword ".") .>>. exprParser
     |>> (fun (param, body) -> Function(param, body))
 
-exprParserRef := 
+let applicationParser : Parser<Expr, unit> =
+    between (keyword "(") (keyword ")") exprParser
+    
+
+let termParser: Parser<Expr, unit> =
     functionParser
     <|> varParser
-    <|> applicationParser 
+    <|> applicationParser
+
+exprParserRef :=
+    pipe2 termParser (many (spaces >>. termParser))
+        (fun first rest -> List.fold (fun acc x -> Application(acc, x)) first rest)
 
 
 let parseLambda (expr: string) : Result<Expr, string> =

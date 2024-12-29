@@ -12,8 +12,7 @@ namespace Lambda.Controllers
         public IActionResult LambdaInput(string input)
         {
             var result = Logic.processInput(input);
-            var resultString = result.ToString();
-            return Ok(new InputData { lambdaInputString = resultString });
+            return Ok(result);
         }
     }
 }

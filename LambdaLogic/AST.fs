@@ -9,3 +9,4 @@ type Expr =  //<expression> :=   <var>  |   <function>  |   <application>
 
 let handleSyntaxError (message: string) : string =
     $"Syntax Error: {message}"
+

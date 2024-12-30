@@ -6,8 +6,6 @@
    open FSharp.SystemTextJson
    open AST
 
-
-    
    type Response = {lambdaInputString: Expr}
    module Logic =
        let processInput (input: string) =

@@ -40,7 +40,7 @@ exprParserRef :=
         (fun first rest -> List.fold (fun acc x -> Application(acc, x)) first rest)
 
 
-let parseLambda (expr: string) : Result<Expr, unit> =
+let parseLambda (expr: string) : Result<Expr, string> =
     match run exprParser expr with   
     | Success(result, _, _) -> Result.Ok(result)
-    | Failure(_, _, _) -> Result.Error ()
+    | Failure(error, _, _) -> Result.Error(error.ToString())

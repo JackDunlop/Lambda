@@ -13,4 +13,10 @@ type LambdaController (logger : ILogger<LambdaController>) =
     [<HttpGet(Name = "Lambda Input")>]
     member _.LambdaInput(input: string) : IActionResult =
         let result = Logic.processInput(input)
+        let response = { error = false; data = result }
         base.Ok(result)
+
+and internal Response = {
+    error: bool
+    data: string
+}

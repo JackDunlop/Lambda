@@ -295,7 +295,7 @@ module Tests =
         | Failure(errorMsg, _, _) -> Assert.True(false, errorMsg)
 
     [<Fact>]
-    let ``exprParser should parse complex bracket usage (λx.( (λy.(y x)) (λz.z) ))`` () =
+    let ``exprParser should parse complex bracket usage λx.((λy.(y x)) (λz.z))`` () =
         let input = "λx.((λy.(y x)) (λz.z))"
         let expected =
             Function('x',

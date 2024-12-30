@@ -35,6 +35,7 @@ A super basic Lambda calculus interpreter in F#.
 
 
 # Resoucres
-https://opendsa.cs.vt.edu/ODSA/Books/PL/html/Syntax.html
-https://homepage.cs.uiowa.edu/~slonnegr/plf/Book/Chapter5.pdf
-CAB402 Lectures from QUT
+- https://opendsa.cs.vt.edu/ODSA/Books/PL/html/Syntax.html
+- https://homepage.cs.uiowa.edu/~slonnegr/plf/Book/Chapter5.pdf
+- CAB402 Lectures from QUT
+- https://uiverse.io/ilkhoeri/smooth-quail-87

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda", "Lambda\Lambda.csproj", "{C09B7CAA-3A8C-4D6C-B493-AA4136651262}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LambdaLogic", "LambdaLogic\LambdaLogic.fsproj", "{69A2DCAA-0EB7-40B3-A884-46ED0F8DD495}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LambdaTesting", "LambdaTesting\LambdaTesting.fsproj", "{5DF81090-4072-408B-840A-EBA31A578E59}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "lambdafrontend", "LambdaFrontend\lambdafrontend.esproj", "{5C482BCA-E44D-4460-8654-7FA3862BE95D}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "LambdaWebApp", "LambdaWebApp\LambdaWebApp.fsproj", "{9179DB86-F472-4C72-8F96-B1AA1E5EB4A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda", "Lambda\Lambda.csproj", "{B3EA0B2D-AD82-420D-9D51-02BBB68F4D7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C09B7CAA-3A8C-4D6C-B493-AA4136651262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C09B7CAA-3A8C-4D6C-B493-AA4136651262}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C09B7CAA-3A8C-4D6C-B493-AA4136651262}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C09B7CAA-3A8C-4D6C-B493-AA4136651262}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69A2DCAA-0EB7-40B3-A884-46ED0F8DD495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69A2DCAA-0EB7-40B3-A884-46ED0F8DD495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69A2DCAA-0EB7-40B3-A884-46ED0F8DD495}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,6 +33,14 @@ Global
 		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C482BCA-E44D-4460-8654-7FA3862BE95D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9179DB86-F472-4C72-8F96-B1AA1E5EB4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9179DB86-F472-4C72-8F96-B1AA1E5EB4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9179DB86-F472-4C72-8F96-B1AA1E5EB4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9179DB86-F472-4C72-8F96-B1AA1E5EB4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3EA0B2D-AD82-420D-9D51-02BBB68F4D7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3EA0B2D-AD82-420D-9D51-02BBB68F4D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3EA0B2D-AD82-420D-9D51-02BBB68F4D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3EA0B2D-AD82-420D-9D51-02BBB68F4D7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

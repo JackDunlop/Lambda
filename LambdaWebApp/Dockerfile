@@ -12,19 +12,19 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Lambda/Lambda.csproj", "Lambda/"]
-RUN dotnet restore "./Lambda/Lambda.csproj"
+COPY ["LambdaWebApp/LambdaWebApp.fsproj", "LambdaWebApp/"]
+RUN dotnet restore "./LambdaWebApp/LambdaWebApp.fsproj"
 COPY . .
-WORKDIR "/src/Lambda"
-RUN dotnet build "./Lambda.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/LambdaWebApp"
+RUN dotnet build "./LambdaWebApp.fsproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Lambda.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./LambdaWebApp.fsproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Lambda.dll"]
+ENTRYPOINT ["dotnet", "LambdaWebApp.dll"]

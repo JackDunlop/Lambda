@@ -1,8 +1,24 @@
 ﻿import "../Styling/Terminal.css"
 import { useState } from 'react';
 
+const API_BASE_URL = 'http://localhost:5171';  
+
 function Terminal() {
     const [inputValue, setInputValue] = useState("");
+
+
+    const lambdaASTFetch = async () => {
+        try {
+            const response = await fetch(`${API_BASE_URL}/Input?input=${inputValue}`);  
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }  
+            const data = await response.json();
+            if (!data.error) {
+                setCountries(data.data);
+            }
+        }
+    }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
